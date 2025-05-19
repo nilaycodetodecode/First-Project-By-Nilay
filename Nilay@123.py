@@ -13,3 +13,14 @@ df['t_fsts'] = pd.to_datetime(df['t_fsts'])
 df['t_nstp'] = pd.to_datetime(df['t_nstp'])
 df.to_excel(r"C:\Users\bnila\Downloads\task_niloy.xlsx", index=False)
 print(df.columns)
+ 
+print("\nData types after conversion:")
+print(df.dtypes)
+
+# 3. Calculate the difference
+df['t_fsts - t_nstp'] = df['t_nstp'] - df['t_fsts']
+
+print("\nDataFrame with Time Difference (Timedelta object):")
+print(df)
+print("\nData type of 'Time Difference':", df['t_fsts - t_nstp'].dtype)
+df.to_excel("outputtask_nilay.xlsx", index=False)
